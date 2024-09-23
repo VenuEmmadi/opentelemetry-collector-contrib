@@ -1,0 +1,22 @@
+Explanation of Key Changes
+
+output_format: "opentelemetry_logs":
+This field specifies that the output of the log receiver should be in the OpenTelemetry log format. 
+This ensures that logs retrieved from Splunk are formatted correctly for further processing in the OpenTelemetry Collector.
+
+opentelemetry:
+This section allows you to specify configurations that are relevant to how the logs are structured in OpenTelemetry.
+
+service_name: "my_splunk_logs":
+This sets the service name associated with the logs sent to the OpenTelemetry Collector. This can be useful for identifying logs in observability tools.
+
+attributes::
+This section allows you to define additional attributes that will be included with each log entry. In this case, you have an attribute called splunk_index, which indicates the Splunk index from which the logs were retrieved. This can help provide context for the logs when analyzing them.
+
+Overall Functionality
+Log Retrieval: The Splunk log receiver will execute the specified queries against the Splunk HEC endpoint at the defined frequencies.
+Log Formatting: The results of these queries will be formatted into the OpenTelemetry log format.
+Log Transmission: The formatted logs will be sent to the OpenTelemetry collector, along with the specified service name and any additional attributes, making it easier to trace and analyze the logs in your observability stack.
+
+Summary
+This configuration provides a robust way to integrate Splunk logs into your OpenTelemetry observability framework. By specifying the output format and additional attributes, you enhance the usability and context of the logs, making them more valuable for monitoring and troubleshooting. If you have further questions or need additional modifications, feel free to ask!

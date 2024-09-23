@@ -1,0 +1,15 @@
+receivers:
+  splunklogreceiver:
+    endpoint: "http://localhost:8088"  # Splunk HEC endpoint
+    token: "your_hec_token"              # HEC token for authentication
+    queries:
+      - query: "search index=my_index"   # First search query
+        frequency: "1m"                   # Execute every 1 minute
+      - query: "search index=my_index2"  # Second search query
+        frequency: "2m"                   # Execute every 2 minutes
+    fetch_all: false                      # If true, fetch all logs if no queries are specified
+    output_format: "opentelemetry_logs"  # Output format for the logs
+    opentelemetry:
+      service_name: "my_splunk_logs"      # Service name for the logs in OpenTelemetry
+      attributes:
+        splunk_index: "my_index"          # Additional attribute for the logs
