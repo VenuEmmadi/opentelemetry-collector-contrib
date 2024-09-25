@@ -1,0 +1,16 @@
+type: splunklog
+
+# Required for subcomponents
+parent: receiver
+
+# Optional scope name
+scope_name: splunklog_receiver
+
+status:
+  class: receiver
+  stability:
+    alpha: [logs]
+  distributions: []
+  codeowners:
+    active: [venumadhavemmadi]
+    emeritus: []
